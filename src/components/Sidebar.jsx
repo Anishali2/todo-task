@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import PlusIcon from "../assets/svgs/messages copy";
 import MiniSidebar from "./MiniSidebar";
 const Sidebar = () => {

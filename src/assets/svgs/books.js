@@ -2,7 +2,7 @@ import React from "react";
 
 const BooksIcon = () => {
   return (
-    <div>
+    <div  className=" cursor-pointer">
       <svg
         width="24"
         height="24"

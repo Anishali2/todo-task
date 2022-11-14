@@ -2,7 +2,7 @@ import React from "react";
 
 const PlusIcon = () => {
   return (
-    <div>
+    <div className=" cursor-pointer">
       <svg
         width="18"
         height="18"
