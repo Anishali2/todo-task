@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 
 function App() {
   const open = useSelector((state) => state.list.drawer);
+  const task = useSelector((state) => state.list.taskModal);
   return (
     <div>
       <div className="w-full">
@@ -17,7 +18,7 @@ function App() {
             open ? " w-[40%]" : "w-[50%]"
           }`}
         >
-          <TaskModal />
+          {task && <TaskModal />}
         </div>
         <div className={`${open ? " w-[30%]" : "w-[10%]"}`}>
           <div className={` absolute top-0 right-0`}>

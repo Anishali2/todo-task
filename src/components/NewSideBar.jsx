@@ -3,7 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import {  Fragment } from "react";
 import MiniSidebar from './MiniSidebar';
 import { useDispatch, useSelector } from 'react-redux';
-import { openDrawer } from '../state/actions/list_action';
+import { openDrawer, showTaskModal } from '../state/actions/list_action';
 import PlusIcon from '../assets/svgs/messages copy';
 
 const NewSideBar = () => {
@@ -63,7 +63,7 @@ const NewSideBar = () => {
           className="flex items-center pl-2.5 "
         >
          
-          <span className="self-center text-xl font-semibold whitespace-nowrap">
+          <span onClick={() => dispatch(showTaskModal(true))} className="self-center text-xl font-semibold whitespace-nowrap">
             <PlusIcon/>
           </span>
         </div>

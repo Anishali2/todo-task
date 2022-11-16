@@ -1,8 +1,9 @@
-import { DRAWER, SWITCH_TAB } from "../constants";
+import { DRAWER, SWITCH_TAB, TASK_MODAL } from "../constants";
 
 const initialState = {
   tabIndex: 0,
   drawer: false,
+  taskModal: true,
 };
 
 export default function list(state = initialState, action) {
@@ -17,6 +18,12 @@ export default function list(state = initialState, action) {
       return {
         ...state,
         drawer: action.payload,
+      };
+    }
+    case TASK_MODAL: {
+      return {
+        ...state,
+        taskModal: action.payload,
       };
     }
     default:

@@ -1,4 +1,4 @@
-import { DRAWER, SWITCH_TAB } from "../constants";
+import { DRAWER, SWITCH_TAB, TASK_MODAL } from "../constants";
 
 export function switchNum(num) {
   return {
@@ -9,6 +9,12 @@ export function switchNum(num) {
 export function openDrawer(bol) {
   return {
     type: DRAWER,
+    payload: bol,
+  };
+}
+export function showTaskModal(bol) {
+  return {
+    type: TASK_MODAL,
     payload: bol,
   };
 }

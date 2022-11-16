@@ -13,6 +13,39 @@
   }
 }
 
+button[class^="MuiButtonBase-root MuiPickersDay-root Mui-selected MuiPickersDay-dayWithMargin css-bkrceb-MuiButtonBase-root-MuiPickersDay-root"],
+ button[class*=" MuiButtonBase-root MuiPickersDay-root Mui-selected MuiPickersDay-dayWithMargin css-bkrceb-MuiButtonBase-root-MuiPickersDay-root"]
+  { background-color: #A7C04090 !important; }
+  button[class^="MuiButtonBase-root MuiPickersDay-root Mui-selected MuiPickersDay-dayWithMargin MuiPickersDay-today css-195y93z-MuiButtonBase-root-MuiPickersDay-root"],
+  button[class*="MuiButtonBase-root MuiPickersDay-root Mui-selected MuiPickersDay-dayWithMargin MuiPickersDay-today css-195y93z-MuiButtonBase-root-MuiPickersDay-root"]
+  { background-color: #A7C04090 !important; border: none !important; }
+
+
+
+  button[class^="MuiButtonBase-root MuiPickersDay-root MuiPickersDay-dayWithMargin MuiPickersDay-today css-195y93z-MuiButtonBase-root-MuiPickersDay-root"],
+  button[class*="MuiButtonBase-root MuiPickersDay-root MuiPickersDay-dayWithMargin MuiPickersDay-today css-195y93z-MuiButtonBase-root-MuiPickersDay-root"]
+  { border: none !important; }
+
+  .react-datepicker-popper {
+
+    position: unset !important;
+    inset: 0 !important;
+    transform: translateZ(10px) !important;
+  }
+.react-datepicker__day--selected {
+  background-color: #A7C04090 !important;
+}
+.react-datepicker-wrapper{
+  display: none !important;
+}
+.react-datepicker__header {
+background-color: transparent !important;
+border: none !important;
+}
+
+.react-datepicker{
+  border:none !important
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

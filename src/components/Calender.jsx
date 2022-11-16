@@ -3,97 +3,143 @@ import dayjs from 'dayjs';
 import Stack from '@mui/material/Stack';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { DateTimePicker, DateTimePickerTabs } from '@mui/x-date-pickers/DateTimePicker';
 import { Box, TextField } from '@mui/material';
-import { createTheme, } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
+import { DatePicker } from '@mui/x-date-pickers';
 export default function Calender() {
   const [value, setValue] = React.useState(
-    dayjs('2014-08-18T21:11:54'),
+    dayjs(''),
   );
   const handleChange = (newValue) => {
     setValue(newValue);
   };
-  const materialTheme = createTheme({
-    overrides: {
-      MuiPickersToolbar: {
-        toolbar: {
-          backgroundColor: "black",
-        },
-      },
-      MuiPickersCalendarHeader: {
-        switchHeader: {
-          // backgroundColor: lightBlue.A200,
-          // color: "white",
-        },
-      },
-      MuiPickersDay: {
-        day: {
-          color: "blue",
-        },
-        daySelected: {
-          backgroundColor: "pink",
-        },
-        dayDisabled: {
-          color: "brown",
-        },
-        current: {
-          color: "red",
-        },
-      },
-      MuiPickersModal: {
-        dialogAction: {
-          color: "gray",
-        },
-      },
+  // const materialTheme = createTheme({
+  //   overrides: {
+  //     MuiPickersToolbar: {
+  //       toolbar: {
+  //         backgroundColor: "black",
+  //       },
+  //     },
+  //     MuiPickersCalendarHeader: {
+  //       switchHeader: {
+  //         // backgroundColor: lightBlue.A200,
+  //         // color: "white",
+  //       },
+  //     },
+  //     MuiPickersDay: {
+  //       day: {
+  //         color: "blue",
+  //       },
+  //       daySelected: {
+  //         backgroundColor: "pink",
+  //       },
+  //       dayDisabled: {
+  //         color: "brown",
+  //       },
+  //       current: {
+  //         color: "red",
+  //       },
+  //     },
+  //     MuiPickersModal: {
+  //       dialogAction: {
+  //         color: "gray",
+  //       },
+  //     },
+  //   },
+  // })
+  const calendarSx = {
+    "& .MuiPickersDay-dayWithMargin": {
+      borderRadius: "4px",
+      // outline: "1px solid black",
+      backgroundColor: "green",
+      margin: "0px 1px 0 0",
+
     },
-  })
+   
+    "& .MuiDayPicker-weekContainer": { margin: "1px" }
+  };
   return (
+    <div>
+  
     <LocalizationProvider  dateAdapter={AdapterDayjs}>
       <Stack spacing={3}>
-      <MuiThemeProvider theme={materialTheme}>
-
-        <DateTimePicker
+    
+        <DatePicker
           label="Date&Time picker"
           open={true}
           value={value}
           onChange={handleChange}
           disableOpenPicker
+          views={['day']}
           className='mt-4'
-          
-        //   renderInput={(params) => <TextField {...params} />}
+          ToolbarComponent={(props) => (
+            <div>
+              <CustomToolbar {...props} />
+              <button
+               
+                onClick={() => console.log(true)}
+              >
+              </button>
+            </div>
+          )}
+          PopperProps={{ sx: {
+
+            "& .MuiPickersDay-root": {
+              borderRadius:"4px",
+              // background:"green",
+              // color:"red",
+              // "& .Mui-selected ": {
+              //   backgroundColor: "green",
+
+              // },
+              "& .":{
+                backgroundColor:"red",
+                color:"pink"
+              }
+            }} }}
         renderInput={({
             inputRef,
             inputProps,
             InputProps,
           }) => (
             <div>
-              <Box
-                sx={{
-                  width: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  '& button': {
-                    color: '#000',
-                  },
-                }}
-                ref={inputRef}
-              >
-                {/* <TextField
-                  {...inputProps}
-                  name={`vestings.time`}
-                  className="text-black block mt-1 w-full focus:border-blue-500 border-gray-300 rounded-md shadow-sm uppercase focus:ring-blue-500 sm:text-sm"
-                /> */}
+              <Box ref={inputRef}>
                 {InputProps?.endAdornment}
-                
-               
+
               </Box>
              
             </div>
           )}
         />
-        </MuiThemeProvider>
+        {/* </MuiThemeProvider> */}
       </Stack>
     </LocalizationProvider>
+    </div>
   );
 }
+const CustomToolbar = function(props) {
+
+
+  const { date, isLandscape, openView, setOpenView, title } = props;
+
+  const handleChangeViewClick = (view) => (e) => {
+    setOpenView(view);
+  };
+
+ 
+
+  return (
+    <div
+      
+
+    >
+      <button
+        onClick={handleChangeViewClick('year')}
+      >Hello</button>
+      <button
+        onClick={handleChangeViewClick('date')}
+      
+      >World</button>
+    </div>
+  );
+};
