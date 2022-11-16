@@ -38,10 +38,9 @@ const NewSideBar = () => {
          <Transition.Root show={drawer} as={Fragment}>
         <Dialog as="div" className="relative z-40 " onClose={() => console.log("noting")}>
           
-            <div className="fixed inset-0 " />
 
           <div
-            className="fixed inset-0 z-40 flex "
+            className="fixed top-0 right-0 h-screen z-40 flex "
             style={{ justifyContent: "right" }}
           >
               <MiniSidebar/>

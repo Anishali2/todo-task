@@ -12,10 +12,14 @@ function App() {
   return (
     <div>
       <div className="w-full">
-        <div className={`flex mx-auto h-screen items-center ${open ? " w-[40%]" : "w-[50%]"}`}>
+        <div
+          className={`flex mx-auto h-screen items-center ${
+            open ? " w-[40%]" : "w-[50%]"
+          }`}
+        >
           <TaskModal />
         </div>
-        <div className={ `${open ? " w-[30%]" : "w-[10%]"}`}>
+        <div className={`${open ? " w-[30%]" : "w-[10%]"}`}>
           <div className={` absolute top-0 right-0`}>
             <MiniSidebar />
           </div>
@@ -26,19 +30,3 @@ function App() {
   );
 }
 export default App;
-
-{
-  /* <div className="lg:flex lg:justify-between lg:items-center"> */
-}
-{
-  /* <div>left</div> */
-}
-{
-  /* <div className=" max-w-[600px]"> */
-}
-{
-  /* </div> */
-}
-{
-  /* <Sidebar /> */
-}
