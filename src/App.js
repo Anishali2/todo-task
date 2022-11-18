@@ -1,8 +1,5 @@
 import "./App.css";
-import Sidebar from "../src/components/Sidebar";
 import TaskModal from "./components/TaskModal";
-import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
-import { useState, Fragment } from "react";
 import NewSideBar from "./components/NewSideBar";
 import MiniSidebar from "./components/MiniSidebar";
 import { useSelector } from "react-redux";
@@ -15,7 +12,7 @@ function App() {
       <div className="w-full">
         <div
           className={`flex mx-auto h-screen items-center ${
-            open ? " w-[40%]" : "w-[50%]"
+            open ? " w-[40%]" : "w-[38%]"
           }`}
         >
           {task && <TaskModal />}

@@ -2,19 +2,15 @@ import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import AddPersonIcon from '../assets/svgs/addPerson'
 import SearchIcon from '../assets/svgs/search'
+import GreenCheckIcon from '../assets/svgs/green-check'
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function AddUsers() {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button >
-          {/* Options */}
           <AddPersonIcon/>
-          {/* <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" /> */}
         </Menu.Button>
       </div>
 
@@ -55,17 +51,20 @@ export default function AddUsers() {
 
             </Menu.Item>
             
-           {[0,1,2].map((value,index) => (
+           {["Levi","Light","Walter"].map((value,index) => (
 
             <Menu.Item>
-            <div className="flex items-center bg-white p-2  rounded-sm  hover:bg-slate-600">
+              <div className='flex justify-between items-center bg-white p-2  rounded-sm  hover:bg-[#11366B33] '>
+            <div className="flex items-center" >
                           <img  src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" className="h-10 w-10  flex-shrink-0 rounded-full" />
                           <span
                             className={'font-normal ml-3 block truncate'}
                           >
-                            Joshup
+                           {value} 
                           </span>
-                        </div>
+                    </div>
+                          <GreenCheckIcon/>
+                    </div>
             </Menu.Item>))}
            
           </div>
