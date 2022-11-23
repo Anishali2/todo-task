@@ -6,7 +6,7 @@ const initialState = {
   taskModal: true,
 };
 
-export default function list(state = initialState, action) {
+export default function task(state = initialState, action) {
   switch (action.type) {
     case SWITCH_TAB: {
       return {

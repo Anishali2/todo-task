@@ -9,17 +9,13 @@ import CalenderIcon from "../assets/svgs/calender";
 import dayjs from "dayjs";
 import EditIcon from "../assets/svgs/edit";
 
-// CSS Modules, react-datepicker-cssmodules.css
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-
 const CustomCalender = ({ date, setDate, reminder }) => {
   const [startDate, setStartDate] = useState(new Date());
-  const [newReminder, setNewReminder] = useState();
+  const [newReminder, setNewReminder] = useState("10:00");
   const [showReminder, setShowReminder] = useState();
 
   const done = () => {
-    console.log("startDate", startDate);
-    setDate("date", startDate);
+    setDate("date", dayjs(startDate));
     setDate("reminder", newReminder);
   };
   return (
@@ -28,27 +24,29 @@ const CustomCalender = ({ date, setDate, reminder }) => {
         {date ? (
           <div className="flex justify-between">
             <div className="flex">
-              <span className="pt-1"><CalenderIcon /></span>
+              <span className="pt-1">
+                <CalenderIcon />
+              </span>
               <span className="ml-2 mr-5">
                 {dayjs(date).format("DD/MM/YYYY")}
               </span>
             </div>
-            {reminder ? (
+            {newReminder ? (
               <div className="flex space-x-2">
                 <BellIcon />
-                <span className="ml-2">{reminder}</span>
+                <span className="ml-2">{newReminder}</span>
               </div>
             ) : (
               ""
             )}
-              <Menu.Button className="ml-4">
-                <EditIcon />
-              </Menu.Button>
+            <Menu.Button className="ml-4">
+              <EditIcon />
+            </Menu.Button>
           </div>
         ) : (
           <Menu.Button>
             <p className=" cursor-pointer text-blue-600 flex items-center">
-              <CalenderIcon />   <span className="ml-1.5">Date</span>
+              <CalenderIcon /> <span className="ml-1.5">Add</span>
             </p>
           </Menu.Button>
         )}
@@ -67,6 +65,7 @@ const CustomCalender = ({ date, setDate, reminder }) => {
         <Menu.Items className="absolute px-2  w-fit  left-0 z-10 mt-2  origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div>
             <DatePicker
+              minDate={new Date()}
               formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 1)}
               selected={startDate}
               change
@@ -93,6 +92,8 @@ const CustomCalender = ({ date, setDate, reminder }) => {
                   <BellIcon />
                 </div>
                 <input
+                  // hide input default value
+
                   type="time"
                   name="price"
                   onChange={(e) => setNewReminder(e.target.value)}
